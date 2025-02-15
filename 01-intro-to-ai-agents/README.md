@@ -1,97 +1,97 @@
-# Introduction to AI Agents and Agent Use Cases
+```markdown
+# Введение в ИИ-агентов и их применение
 
-Welcome to the "AI Agents for Beginners" course! This course gives you fundamental knowledge and applied samples for building with AI Agents.
+Добро пожаловать на курс "ИИ-агенты для начинающих"! Этот курс даст вам фундаментальные знания и практические примеры по созданию решений с использованием ИИ-агентов.
 
-Join the [Azure AI Discord Community](https://discord.gg/kzRShWzttr) to meet other learners, and AI Agent Builders and ask any questions you have on this course.
+Присоединяйтесь к [сообществу Azure AI в Discord](https://discord.gg/kzRShWzttr), чтобы познакомиться с другими учениками и разработчиками ИИ-агентов, а также задать любые вопросы по курсу.
 
-To start this course, we begin by getting a better understanding of what AI Agents are and how we can use them in the applications and workflows we build.
+Для начала курса мы разберёмся, что такое ИИ-агенты и как их можно использовать в наших приложениях и рабочих процессах.
 
-## Introduction
+## Введение
 
-This lesson covers:
+В этом уроке рассматриваются следующие вопросы:
 
-- What are AI Agents and what are the different types of agents?
-- What use cases are best for AI Agents and how they can help us?
-- What are some of the basic building blocks when designing Agentic Solutions?
+- Что такое ИИ-агенты и какие их типы существуют?
+- В каких случаях использование ИИ-агентов наиболее эффективно и как они могут помочь?
+- Какие основные компоненты используются при разработке агентных решений?
 
-## Learning Goals
-After completing this lesson, you should be able to:
+## Цели обучения
 
-- Understand AI Agent concepts and how they differ from other AI solutions.
-- Apply AI Agents most efficiently.
-- Design Agentic solutions productively for both users and customers.
+После завершения этого урока вы сможете:
 
-## Defining AI Agents and Types of AI Agents
+- Понять основные концепции ИИ-агентов и их отличия от других ИИ-решений.
+- Эффективно применять ИИ-агентов.
+- Продуктивно проектировать агентные решения как для пользователей, так и для клиентов.
 
-### What are AI Agents?
+## Определение ИИ-агентов и их виды
 
-AI Agents are **systems** that enable **Large Language Models(LLMs)** to **perform actions** by extending their capabilities by giving LLMs **access to tools** and **knowledge**.
+### Что такое ИИ-агенты?
 
-Let's break this definition into smaller parts:
+ИИ-агенты — это **системы**, которые позволяют **большим языковым моделям (LLMs)** **выполнять действия**, расширяя их возможности за счёт предоставления **доступа к инструментам** и **знаниям**.
 
-- **System** - It's important to think about agents not as just a single component but as a system of many components. At the basic level, the components of an AI Agent are:
-  - **Environment** - The defined space where the AI Agent is operating. For example, if we had a travel booking AI Agent, the environment could be the travel booking system that the AI Agent uses to complete tasks.
-  - **Sensors** - Environments have information and provide feedback. AI Agents use sensors to gather and interpret this information about the current state of the environment. In the Travel Booking Agent example, the travel booking system can provide information such as hotel availability or flight prices.
-  - **Actuators** - Once the AI Agent receives the current state of the environment, for the current task the agent determines what action to perform to change the environment. For the travel booking agent, it might be to book an available room for the user.
+Разберём это определение на составные части:
 
-![What Are AI Agents?](./images/what-are-ai-agents.png?WT.mc_id=academic-105485-koreyst)
+- **Система** — Важно рассматривать агентов не как единый компонент, а как систему из множества компонентов. На базовом уровне компоненты ИИ-агента включают:
+  - **Среда (Environment)** — Определённое пространство, в котором работает ИИ-агент. Например, если у нас есть ИИ-агент для бронирования путешествий, его средой может быть система бронирования, которую агент использует для выполнения задач.
+  - **Сенсоры (Sensors)** — Среда содержит информацию и предоставляет обратную связь. ИИ-агенты используют сенсоры для сбора и интерпретации этой информации о текущем состоянии среды. В примере с агентом бронирования путешествий система бронирования может предоставлять данные о наличии номеров в отелях или ценах на авиабилеты.
+  - **Приводы (Actuators)** — Получив текущее состояние среды, агент определяет, какие действия необходимо выполнить для её изменения. В случае агента бронирования это может быть бронирование доступного номера для пользователя.
 
-**Large Language Models** - The concept of agents existed before the creation of LLMs. The advantage of building AI Agents with LLMs is their ability to interpret human language and data. This ability enables LLMs to interpret environmental information and define a plan to change the environment.
+![Что такое ИИ-агенты?](./images/what-are-ai-agents.png?WT.mc_id=academic-105485-koreyst)
 
-**Perform Actions** - Outside of AI Agent systems, LLMs are limited to situations where the action is generating content or information based on a user's prompt. Inside AI Agent systems, LLMs can accomplish tasks by interpreting the user's request and using tools that are available in its environment.
+**Большие языковые модели (LLMs)** — Концепция агентов существовала ещё до появления LLMs. Преимущество использования LLMs для создания ИИ-агентов заключается в их способности интерпретировать человеческий язык и данные. Это позволяет моделям анализировать информацию из среды и разрабатывать план для её изменения.
 
-**Access To Tools** - What tools the LLM has access to is defined by 1) the environment it's operating in and 2) the developer of the AI Agent. For our travel agent example,  the agent's tools are limited by the operations available in the booking system, and/or the developer can limit the agent's tool access to flights.
+**Выполнение действий** — Вне системы ИИ-агентов LLMs ограничены ситуациями, где их действие сводится к генерации контента или информации на основе запроса пользователя. В системе ИИ-агента LLMs могут выполнять задачи, интерпретируя запросы пользователей и используя доступные инструменты в своей среде.
 
-**Knowledge** - Outside of the information provided by the environment, AI Agents can also retrieve knowledge from other systems, services, tools, and even other agents. In the travel agent example, this knowledge could be the information on the user's travel preferences located in a customer database.
+**Доступ к инструментам** — Доступ к инструментам LLM определяется двумя факторами: 1) средой, в которой он работает, и 2) разработчиком ИИ-агента. В нашем примере с агентом бронирования путешествий инструменты агента ограничены возможностями системы бронирования, а разработчик может дополнительно ограничить доступ агента только к данным о рейсах.
 
-### The different types of agents
+**Знания** — Помимо информации, предоставляемой средой, ИИ-агенты могут также получать знания из других систем, сервисов, инструментов и даже от других агентов. В примере с агентом бронирования путешествий такими знаниями могут быть предпочтения пользователя, хранящиеся в базе данных клиентов.
+### Различные типы агентов
 
-Now that we have a general definition of AI Agents, let us look at some specific agent types and how they would be applied to a travel booking AI agent.
+Теперь, когда у нас есть общее определение ИИ-агентов, давайте рассмотрим некоторые конкретные типы агентов и их применение на примере ИИ-агента для бронирования путешествий.
 
-| **Agent Type**                | **Description**                                                                                                                       | **Example**                                                                                                                                                                                                                   |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Simple Reflex Agents**      | Perform immediate actions based on predefined rules.                                                                                  | Travel agent interprets the context of the email and forwards travel complaints to customer service.                                                                                                                          |
-| **Model-Based Reflex Agents** | Perform actions based on a model of the world and changes to that model.                                                              | Travel agent prioritizes routes with significant price changes based on access to historical pricing data.                                                                                                             |
-| **Goal-Based Agents**         | Create plans to achieve specific goals by interpreting the goal and determining actions to reach it.                                  | Travel agent books a journey by determining necessary travel arrangements (car, public transit, flights) from current location to destination.                                                                                |
-| **Utility-Based Agents**      | Consider preferences and weigh tradeoffs numerically to determine how to achieve goals.                                               | Travel agent maximizes utility by weighing convenience vs. cost when booking travel.                                                                                                                                          |
-| **Learning Agents**           | Improve over time by responding to feedback and adjusting actions accordingly.                                                        | Travel agent improves by using customer feedback from post-trip surveys to make adjustments to future bookings.                                                                                                               |
-| **Hierarchical Agents**       | Feature multiple agents in a tiered system, with higher-level agents breaking tasks into subtasks for lower-level agents to complete. | Travel agent cancels a trip by dividing the task into subtasks (for example, canceling specific bookings) and having lower-level agents complete them, reporting back to the higher-level agent.                                     |
-| **Multi-Agent Systems (MAS)** | Agents complete tasks independently, either cooperatively or competitively.                                                           | Cooperative: Multiple agents book specific travel services such as hotels, flights, and entertainment. Competitive: Multiple agents manage and compete over a shared hotel booking calendar to book customers into the hotel. |
-
-## When to Use AI Agents
-
-In the earlier section, we used the Travel Agent use-case to explain how the different type of agents can be used in different scenarios of travel booking. We will continue to use this application throughout the course.
-
-Let's look at they types of use cases that AI Agents are best used for:
-
-![When to use AI Agents?](./images/when-to-use-ai-agents.png?WT.mc_id=academic-105485-koreyst)
+| **Тип агента**                 | **Описание**                                                                                                                       | **Пример**                                                                                                                                                                                                                      |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Агенты простых рефлексов**   | Выполняют немедленные действия на основе заранее заданных правил.                                                               | Агент по бронированию путешествий интерпретирует контекст электронного письма и перенаправляет жалобы на поездку в службу поддержки клиентов.                                                                                     |
+| **Агенты с моделью среды**     | Выполняют действия на основе модели мира и изменений в этой модели.                                                             | Агент по бронированию путешествий приоритизирует маршруты с значительными изменениями цен на основе доступа к историческим данным о ценах.                                                                                      |
+| **Агенты, основанные на целях** | Создают планы для достижения конкретных целей, интерпретируя цель и определяя необходимые действия.                           | Агент по бронированию путешествий организует поездку, определяя необходимые транспортные средства (автомобиль, общественный транспорт, авиаперелёты) от текущего местоположения до пункта назначения.                             |
+| **Агенты, основанные на полезности** | Учитывают предпочтения и взвешивают компромиссы численно, чтобы определить наилучший способ достижения целей.                   | Агент по бронированию путешествий максимизирует полезность, оценивая удобство поездки по сравнению со стоимостью при бронировании.                                                                                              |
+| **Обучающиеся агенты**         | Улучшаются со временем, реагируя на обратную связь и корректируя свои действия.                                                 | Агент по бронированию путешествий совершенствуется, используя отзывы клиентов из пост-поездочных опросов для корректировки будущих бронирований.                                                                               |
+| **Иерархические агенты**       | Включают несколько агентов в многоуровневой системе, где агенты более высокого уровня разбивают задачи на подзадачи для выполнения агентами более низкого уровня. | Агент по бронированию путешествий отменяет поездку, разделяя задачу на подзадачи (например, отмена отдельных бронирований), которые выполняются агентами нижнего уровня и передают отчёт агенту верхнего уровня.                 |
+| **Многоагентные системы (MAS)** | Агенты выполняют задачи независимо, либо кооперативно, либо в конкурентной среде.                                             | **Кооперативный пример**: Несколько агентов бронируют отдельные услуги, такие как отели, авиабилеты и развлечения. <br> **Конкурентный пример**: Несколько агентов управляют общим календарём бронирования отеля, конкурируя за клиентов. |
 
 
-- **Open-Ended Problems** - allowing the LLM to determine needed steps to complete a task because it can't always be hardcoded into a workflow.
-- **Multi-Step Processes** - tasks that require a level of complexity in which the AI Agent needs to use tools or information over multiple turns instead of single shot retrieval.  
-- **Improvement Over Time** - tasks where the agent can improve over time by receiving feedback from either its environment or users in order to provide better utility.
+## Когда использовать ИИ-агентов
 
-We cover more considerations of using AI Agents in the Building Trustworthy AI Agents lesson.
+В предыдущем разделе мы использовали пример ИИ-агента для бронирования путешествий, чтобы объяснить, как разные типы агентов применяются в различных сценариях бронирования. Мы продолжим использовать этот пример на протяжении всего курса.
 
-## Basics of Agentic Solutions
+Рассмотрим, в каких случаях ИИ-агенты наиболее полезны:
 
-### Agent Development
+![Когда использовать ИИ-агентов?](./images/when-to-use-ai-agents.png?WT.mc_id=academic-105485-koreyst)
 
-The first step in designing an AI Agent system is to define the tools, actions, and behaviors. In this course, we focus on using the **Azure AI Agent Service** to define our Agents. It offers features like:
+- **Открытые задачи** — предоставляют LLM возможность определять необходимые шаги для выполнения задачи, так как не всегда возможно заранее запрограммировать их в рабочем процессе.
+- **Многошаговые процессы** — задачи, требующие определённого уровня сложности, где ИИ-агенту необходимо использовать инструменты или информацию на протяжении нескольких шагов, а не в одном вызове.
+- **Улучшение со временем** — задачи, в которых агент может со временем улучшаться, получая обратную связь от среды или пользователей для повышения своей полезности.
 
-- Selection of Open Models such as OpenAI, Mistral, and Llama
-- Use of Licensed Data through providers such as Tripadvisor
-- Use of standardized OpenAPI 3.0 tools
+Дополнительные аспекты использования ИИ-агентов рассматриваются в уроке **"Создание надёжных ИИ-агентов"**.
 
-### Agentic Patterns
+## Основы агентных решений
 
-Communication with LLMs is through prompts. Given the semi-autonomous nature of AI Agents, it isn't always possible or required to manually reprompt the LLM after a change in the environment. We use **Agentic Patterns** that allow us to prompt the LLM over multiple steps in a more scalable way.
+### Разработка агентов
 
-This course is divided into some of the current popular Agentic patterns.
+Первый шаг при проектировании системы ИИ-агентов — это определение инструментов, действий и поведения. В этом курсе мы сосредоточимся на использовании **Azure AI Agent Service** для создания агентов. Этот сервис предлагает такие возможности, как:
 
-### Agentic Frameworks
+- Выбор открытых моделей, таких как OpenAI, Mistral и Llama
+- Использование лицензированных данных от провайдеров, например, Tripadvisor
+- Поддержка стандартизированных инструментов OpenAPI 3.0
 
-Agentic Frameworks allow developers to implement agentic patterns through code. These frameworks offer templates, plugins, and tools for better AI Agent collaboration. These benefits provide abilities for better observability and troubleshooting of AI Agent systems.
+### Агентные паттерны
 
-In this course, we will explore the research-driven AutoGen framework and the production ready Agent framework from Semantic Kernel.
+Взаимодействие с LLM осуществляется через промпты. Из-за полуавтономного характера ИИ-агентов не всегда возможно или необходимо вручную повторно запрашивать LLM после изменения среды. Мы используем **агентные паттерны**, которые позволяют нам эффективно направлять LLM на нескольких шагах в более масштабируемом виде.
 
+Этот курс охватывает некоторые из наиболее популярных агентных паттернов.
+
+### Агентные фреймворки
+
+Агентные фреймворки позволяют разработчикам реализовывать агентные паттерны в коде. Они предлагают шаблоны, плагины и инструменты для лучшего взаимодействия между ИИ-агентами. Эти возможности обеспечивают улучшенную наблюдаемость и отладку систем ИИ-агентов.
+
+В этом курсе мы рассмотрим ориентированный на исследования фреймворк **AutoGen**, а также готовый к производственному использованию **Agent Framework** из **Semantic Kernel**.
